@@ -1,0 +1,11 @@
+.terraform
+.terraform.lock.hcl
+terraform.tfstate
+terraform.tfstate.backup
+.DS_Store
+setup.tf
+.idea/
+bin
+include
+lib
+venv

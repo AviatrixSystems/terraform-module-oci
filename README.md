@@ -96,7 +96,6 @@ module "aviatrix_controller_initialize" {
   account_email                 = "<< your email address for your access account >>"
   access_account_name           = "<< your account name mapping to your Azure account >>"
   aviatrix_customer_id          = "<< your customer license id >>"
-  terraform_module_path         = "<< absolute path of this terraform module >>"
 }
 ```
 *Execute*
@@ -163,7 +162,6 @@ module "aviatrix_controller_initialize" {
   account_email                 = "<< your email address for your access account >>"
   access_account_name           = "<< your account name mapping to your Azure account >>"
   aviatrix_customer_id          = "<< your customer license id >>"
-  terraform_module_path         = "<< absolute path of this terraform module >>"
 }
 ```
 *Execute*

@@ -13,8 +13,8 @@
 #  limitations under the License.
 
 locals {
-  option = format("%s/aviatrix-controller-initialize/aviatrix_controller_init.py",
-    var.terraform_module_path
+  option = format("%s/aviatrix_controller_init.py",
+    path.module
   )
   argument = format("'%s' '%s' '%s' '%s' '%s' '%s' '%s' '%s' '%s' '%s' '%s'",
     var.avx_controller_public_ip, var.avx_controller_private_ip, var.avx_controller_admin_email,

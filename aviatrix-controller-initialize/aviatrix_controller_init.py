@@ -852,6 +852,7 @@ if __name__ == "__main__":
     account_email = sys.argv[9]
     access_account_name = sys.argv[10]
     aviatrix_customer_id = sys.argv[11]
+    controller_version = sys.argv[12]
 
     event = {
         "hostname": hostname,
@@ -860,7 +861,7 @@ if __name__ == "__main__":
         "aviatrix_api_route": "api",
         "admin_email": admin_email,
         "new_admin_password": new_admin_password,
-        "controller_init_version": "latest",
+        "controller_init_version": controller_version,
         "oci_tenancy_id": oci_tenancy_id,
         "oci_user_id": oci_user_id,
         "oci_compartment_id": oci_compartment_id,

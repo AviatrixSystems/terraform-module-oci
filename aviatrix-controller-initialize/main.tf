@@ -16,11 +16,11 @@ locals {
   option = format("%s/aviatrix_controller_init.py",
     path.module
   )
-  argument = format("'%s' '%s' '%s' '%s' '%s' '%s' '%s' '%s' '%s' '%s' '%s'",
+  argument = format("'%s' '%s' '%s' '%s' '%s' '%s' '%s' '%s' '%s' '%s' '%s' '%s'",
     var.avx_controller_public_ip, var.avx_controller_private_ip, var.avx_controller_admin_email,
     var.avx_controller_admin_password, var.oci_tenancy_id, var.oci_user_id,
     var.oci_compartment_id, var.oci_api_key_path, var.account_email, var.access_account_name,
-    var.aviatrix_customer_id
+    var.aviatrix_customer_id, var.controller_version
   )
 }
 resource "null_resource" "run_script" {

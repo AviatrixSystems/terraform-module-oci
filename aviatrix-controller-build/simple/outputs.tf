@@ -23,19 +23,3 @@ output "aviatrix_controller_private_ip" {
 output "aviatrix_controller_url" {
   value = "https://${oci_core_instance.simple-vm.public_ip}"
 }
-
-output "aviatrix_controller_tenancy_id" {
-  value = var.tenancy_ocid
-}
-
-output "aviatrix_controller_compartment_id" {
-  value = var.compartment_ocid
-}
-
-output "aviatrix_controller_user_id" {
-  value = var.user_ocid
-}
-
-output "aviatrix_controller_api_key_path" {
-  value = var.private_key_path
-}

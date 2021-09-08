@@ -33,7 +33,7 @@ In order to run `aviatrix_controller_init.py` python script, dependencies listed
 **build_controller.tf**
 ```
 module "aviatrix_controller_build" {
-  source           = "./aviatrix-controller-build/simple"
+  source           = "github.com/AviatrixSystems/terraform-module-oci.git//aviatrix-controller-build/simple"
   tenancy_ocid     = "<< tenancy ocid >>"
   compartment_ocid = "<< compartment ocid >>"
   user_ocid        = "<< user ocid >>"
@@ -54,22 +54,6 @@ output "aviatrix_controller_private_ip" {
 
 output "aviatrix_controller_url" {
   value = module.aviatrix_controller_build.aviatrix_controller_url
-}
-
-output "aviatrix_controller_tenancy_id" {
-  value = module.aviatrix_controller_build.aviatrix_controller_tenancy_id
-}
-
-output "aviatrix_controller_compartment_id" {
-  value = module.aviatrix_controller_build.aviatrix_controller_compartment_id
-}
-
-output "aviatrix_controller_user_id" {
-  value = module.aviatrix_controller_build.aviatrix_controller_user_id
-}
-
-output "aviatrix_controller_api_key_path" {
-  value = module.aviatrix_controller_build.aviatrix_controller_api_key_path
 }
 ```
 *Execute*
@@ -84,18 +68,19 @@ cd ..
 **controller_init.tf**
 ```
 module "aviatrix_controller_initialize" {
-  source                        = "./aviatrix-controller-initialize"
+  source                        = "github.com/AviatrixSystems/terraform-module-oci.git//aviatrix-controller-initialize"
   avx_controller_public_ip      = "<< public ip address of the Aviatrix Controller >>"
   avx_controller_private_ip     = "<< private ip address of the Aviatrix Controller >>"
-  avx_controller_admin_email    = "<< your admin email address for the Aviatrix Controller >>"
-  avx_controller_admin_password = "<< your admin password for the Aviatrix Controller >>"
-  oci_tenancy_id                = "<< OCI tenancy id >>"
-  oci_user_id                   = "<< OCI user id >>"
-  oci_compartment_id            = "<< OCI compartment id >>"
-  oci_api_key_path              = "<< OCI SSH private key path >>"
-  account_email                 = "<< your email address for your access account >>"
-  access_account_name           = "<< your account name mapping to your Azure account >>"
-  aviatrix_customer_id          = "<< your customer license id >>"
+  avx_controller_admin_email    = "<< admin email address for the Aviatrix Controller >>"
+  avx_controller_admin_password = "<< admin password for the Aviatrix Controller >>"
+  oci_tenancy_id                = "<< tenancy ocid >>"
+  oci_user_id                   = "<< user ocid >>"
+  oci_compartment_id            = "<< compartment ocid >>"
+  oci_api_key_path              = "<< private key path >>"
+  account_email                 = "<< email address for the access account >>"
+  access_account_name           = "<< account name mapping to the Azure account >>"
+  aviatrix_customer_id          = "<< customer license id >>"
+  controller_version            = "<< desired controller version. defaults to 'latest' >>"
 }
 ```
 *Execute*
@@ -110,7 +95,7 @@ cd ..
 The controller buildup and initialization can be done using a single terraform file.
 ```
 module "aviatrix_controller_build" {
-  source           = "./aviatrix-controller-build/simple"
+  source           = "github.com/AviatrixSystems/terraform-module-oci.git//aviatrix-controller-build/simple"
   tenancy_ocid     = "<< tenancy ocid >>"
   compartment_ocid = "<< compartment ocid >>"
   user_ocid        = "<< user ocid >>"
@@ -133,35 +118,20 @@ output "aviatrix_controller_url" {
   value = module.aviatrix_controller_build.aviatrix_controller_url
 }
 
-output "aviatrix_controller_tenancy_id" {
-  value = module.aviatrix_controller_build.aviatrix_controller_tenancy_id
-}
-
-output "aviatrix_controller_compartment_id" {
-  value = module.aviatrix_controller_build.aviatrix_controller_compartment_id
-}
-
-output "aviatrix_controller_user_id" {
-  value = module.aviatrix_controller_build.aviatrix_controller_user_id
-}
-
-output "aviatrix_controller_api_key_path" {
-  value = module.aviatrix_controller_build.aviatrix_controller_api_key_path
-}
-
 module "aviatrix_controller_initialize" {
-  source                        = "./aviatrix-controller-initialize"
+  source                        = "github.com/AviatrixSystems/terraform-module-oci.git//aviatrix-controller-initialize"
   avx_controller_public_ip      = module.aviatrix_controller_build.aviatrix_controller_public_ip
   avx_controller_private_ip     = module.aviatrix_controller_build.aviatrix_controller_private_ip
-  avx_controller_admin_email    = "<< your admin email address for the Aviatrix Controller >>"
-  avx_controller_admin_password = "<< your admin password for the Aviatrix Controller >>"
-  oci_tenancy_id                = module.aviatrix_controller_build.aviatrix_controller_tenancy_id
-  oci_user_id                   = module.aviatrix_controller_build.aviatrix_controller_user_id
-  oci_compartment_id            = module.aviatrix_controller_build.aviatrix_controller_compartment_id
-  oci_api_key_path              = module.aviatrix_controller_build.aviatrix_controller_api_key_path
-  account_email                 = "<< your email address for your access account >>"
-  access_account_name           = "<< your account name mapping to your Azure account >>"
-  aviatrix_customer_id          = "<< your customer license id >>"
+  avx_controller_admin_email    = "<< admin email address for the Aviatrix Controller >>"
+  avx_controller_admin_password = "<< admin password for the Aviatrix Controller >>"
+  oci_tenancy_id                = "<< tenancy ocid >>"
+  oci_user_id                   = "<< user ocid >>"
+  oci_compartment_id            = "<< compartment ocid >>"
+  oci_api_key_path              = "<< private key path >>"
+  account_email                 = "<< email address for the access account >>"
+  access_account_name           = "<< account name mapping to the Azure account >>"
+  aviatrix_customer_id          = "<< customer license id >>"
+  controller_version            = "<< desired controller version. defaults to 'latest' >>"
 }
 ```
 *Execute*

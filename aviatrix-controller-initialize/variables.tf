@@ -66,3 +66,9 @@ variable "aviatrix_customer_id" {
   type        = string
   description = "aviatrix customer license id"
 }
+
+variable "controller_version" {
+  type        = string
+  description = "Aviatrix Controller version"
+  default     = "latest"
+}

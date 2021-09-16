@@ -169,7 +169,6 @@ def function_handler(event):
     logging.info("END: Re-login")
 
     # Step10. Set Aviatrix Customer ID
-    # only BYOL license in Azure
     logging.info("START: Set Aviatrix Customer ID by invoking aviatrix API")
     response = set_aviatrix_customer_id(
         api_endpoint_url=api_endpoint_url,
@@ -366,6 +365,7 @@ def send_aviatrix_api(
     payload=dict(),
     retry_count=5,
     timeout=None,
+    files=dict(),
 ):
     response = None
     responses = list()
@@ -381,7 +381,7 @@ def send_aviatrix_api(
                 response_status_code = response.status_code
             elif request_type == "POST":
                 response = requests.post(
-                    url=api_endpoint_url, data=payload, verify=False, timeout=timeout
+                    url=api_endpoint_url, data=payload, verify=False, timeout=timeout, files=files
                 )
                 response_status_code = response.status_code
             else:
@@ -775,8 +775,9 @@ def create_access_account(
         "oci_tenancy_id": oci_tenancy_id,
         "oci_user_id": oci_user_id,
         "oci_compartment_id": oci_compartment_id,
-        "oci_api_key_path": oci_api_key_path,
     }
+
+    files = {'oci_api_key': open(oci_api_key_path, 'rb')}
 
     payload_with_hidden_password = dict(data)
     payload_with_hidden_password["account_password"] = "************"
@@ -792,6 +793,7 @@ def create_access_account(
         api_endpoint_url=api_endpoint_url,
         request_method=request_method,
         payload=data,
+        files=files,
     )
     return response
 
@@ -838,7 +840,7 @@ def verify_aviatrix_api_create_access_account(
 
 if __name__ == "__main__":
     logging.basicConfig(
-        format="%(asctime)s aviatrix-azure-function--- %(message)s", level=logging.INFO
+        format="%(asctime)s aviatrix-oci-function--- %(message)s", level=logging.INFO
     )
 
     hostname = sys.argv[1]
@@ -877,5 +879,5 @@ if __name__ == "__main__":
         logging.exception("")
     else:
         logging.info(
-            "Aviatrix Controller %s has been initialized successfully", ucc_public_ip
+            "Aviatrix Controller %s has been initialized successfully", hostname
         )

@@ -18,7 +18,7 @@ module "aviatrix_controller_initialize" {
   oci_compartment_id            = "<< compartment ocid >>"
   oci_api_key_path              = "<< private key path >>"
   account_email                 = "<< email address for the access account >>"
-  access_account_name           = "<< account name mapping to the Azure account >>"
+  access_account_name           = "<< account name mapping to the Oracle account >>"
   aviatrix_customer_id          = "<< customer license id >>"
   controller_version            = "<< desired controller version. defaults to 'latest' >>"
 }

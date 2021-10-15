@@ -42,6 +42,7 @@ module "aviatrix_controller_build" {
   private_key_path = "<< private key path >>"
   license_model    = "<< BYOL or PAID >>"
   region           = "<< controller region >>"
+  nsg_whitelist_ip = ["<< CIDR allowed for HTTPS access >>", "<< another CIDR allowed for HTTPS access >>"]
 }
 
 output "aviatrix_controller_public_ip" {
@@ -104,6 +105,7 @@ module "aviatrix_controller_build" {
   private_key_path = "<< private key path >>"
   license_model    = "<< BYOL or PAID >>"
   region           = "<< controller region >>"
+  nsg_whitelist_ip = ["<< CIDR allowed for HTTPS access >>", "<< another CIDR allowed for HTTPS access >>"]
 }
 
 output "aviatrix_controller_public_ip" {

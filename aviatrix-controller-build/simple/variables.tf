@@ -1,4 +1,4 @@
-#  Copyright 2019 Aviatrix Systems, Inc.
+#  Copyright 2019, 2021 Aviatrix Systems, Inc.
 #
 #  Licensed under the Apache License, Version 2.0 (the "License");
 #  you may not use this file except in compliance with the License.
@@ -97,7 +97,7 @@ variable "nsg_display_name" {
 }
 
 variable "nsg_whitelist_ip" {
-  description = "Network Security Groups - Whitelisted CIDR block for ingress communication: Enter 0.0.0.0/0 or <your IP>/32 "
-  default     = "0.0.0.0/0"
+  type        = list(string)
+  description = "Network Security Groups - list of whitelisted CIDR blocks for ingress https"
 }
 

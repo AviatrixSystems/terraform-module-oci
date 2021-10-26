@@ -1,4 +1,4 @@
-#  Copyright 2019 Aviatrix Systems, Inc.
+#  Copyright 2019, 2021 Aviatrix Systems, Inc.
 #
 #  Licensed under the Apache License, Version 2.0 (the "License");
 #  you may not use this file except in compliance with the License.
@@ -25,7 +25,7 @@ variable "nsg_display_name" {
 }
 
 variable "nsg_whitelist_ip" {
-  default = ""
+  type = list(string)
 }
 
 variable "use_existing_network" {

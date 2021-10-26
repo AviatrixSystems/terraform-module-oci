@@ -19,6 +19,7 @@ module "aviatrix_controller_build" {
   private_key_path = "<< private key path >>"
   license_model    = "<< BYOL or PAID >>"
   region           = "<< controller region >>"
+  nsg_whitelist_ip = ["<< CIDR_1 allowed for HTTPS access >>", "<< CIDR_2 allowed for HTTPS access >>", ...]
 }
 ```
 
@@ -55,6 +56,10 @@ module "aviatrix_controller_build" {
 - **license_model**
 
   Marketplace license model: "BYOL" or "PAID"
+
+- **nsg_whitelist_ip**
+
+  List of whitelisted CIDR blocks for ingress communication.
 
 - **product_version**
 
@@ -103,10 +108,6 @@ module "aviatrix_controller_build" {
 - **nsg_display_name**
 
   Network security group display name. Default value: "controller-sec-group".
-
-- **nsg_whitelist_ip**
-
-  Whitelisted CIDR block for ingress communication. Default value: "0.0.0.0/0".
 
 ### Outputs
 

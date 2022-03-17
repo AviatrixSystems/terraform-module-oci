@@ -40,7 +40,7 @@ variable "mp_paid_versions" {
   type = map(string)
 
   default = {
-    "5.0.1" = "5.0.1"
+    "6.3.0" = "6.3.0"
   }
 }
 
@@ -48,7 +48,7 @@ variable "mp_byol_versions" {
   type = map(string)
 
   default = {
-    "5.0.1" = "5.0.1"
+    "6.3.0" = "6.3.1"
   }
 }
 
@@ -58,7 +58,7 @@ variable "mp_paid_listing_resource_id" {
   type = map(string)
 
   default = {
-    "5.0.1" = "ocid1.image.oc1..aaaaaaaa3zkysxdvsyb76plwj4tw54iiibozlfq3quwgiveeaqdscwmtwgoa"
+    "6.3.0" = "ocid1.image.oc1..aaaaaaaams7arhiyikfhpvo2kj35ky76csllxdnzijqw6ves4a5saaj63mva"
   }
 }
 
@@ -66,7 +66,7 @@ variable "mp_byol_listing_resource_id" {
   type = map(string)
 
   default = {
-    "5.0.1" = "ocid1.image.oc1..aaaaaaaaltulqugc5ygggevy3ig7mv2io75azdareylypx23ezhvonqgrcrq"
+    "6.3.1" = "ocid1.image.oc1..aaaaaaaawyzirrayoeo5ivzkf57texkiu44ytnfifkmzry2xm5uu4otfk7cq"
   }
 }
 

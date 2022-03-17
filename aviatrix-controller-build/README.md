@@ -63,7 +63,7 @@ module "aviatrix_controller_build" {
 
 - **product_version**
 
-  Aviatrix Controller Version available in the Marketplace. Default value: "5.0.1".
+  Aviatrix Controller Version available in the Marketplace. Default value: "6.3.0".
 
 - **availability_domain**
 

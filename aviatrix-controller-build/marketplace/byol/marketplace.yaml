@@ -17,7 +17,7 @@ title: Aviatrix Secure Networking Platform - BYOL
 # Sub Title shown in Application Information tab.
 description: Multi-Cloud Cross-Region Aviatrix Controller
 schemaVersion: 1.1.0
-version: "20190304"
+version: "20220307"
 
 # URL of Logo Icon used on Application Information tab. Logo must be 130x130 pixels.
 # (Optional)
@@ -41,7 +41,8 @@ variableGroups:
       - region 
       - mp_listing_id
       - mp_listing_resource_id
-      - mp_listing_resource_version      
+      - mp_listing_resource_version
+      - ${marketplace_source_images}   
 
   - title: "Compute Configuration"
     variables:

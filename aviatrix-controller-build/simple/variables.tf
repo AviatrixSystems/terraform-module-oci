@@ -46,7 +46,7 @@ variable "license_model" {
 }
 
 variable "product_version" {
-  default     = "5.0.1"
+  default     = "6.3.0"
   description = "Aviatrix Controller Version available in the Marketplace"
 }
 

@@ -49,14 +49,9 @@ module "subscribe_to_marketplace" {
 
 }
 
-data "oci_identity_availability_domain" "ad" {
-  compartment_id = var.tenancy_ocid
-  ad_number      = var.availability_domain
-}
-
 resource "oci_core_instance" "vm" {
   depends_on          = [module.subscribe_to_marketplace]
-  availability_domain = data.oci_identity_availability_domain.ad.name
+  availability_domain = var.availability_domain
   compartment_id      = var.compartment_ocid
   display_name        = var.vm_display_name
   shape               = var.vm_compute_shape

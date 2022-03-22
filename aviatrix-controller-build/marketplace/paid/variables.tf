@@ -123,8 +123,8 @@ variable "compartment_ocid" {
 }
 
 variable "nsg_whitelist_ip" {
-  description = "Network Security Groups - Whitelisted CIDR block for ingress communication: Enter 0.0.0.0/0 or <your IP>/32"
-  default     = "0.0.0.0/0"
+  description = "Network Security Groups - A list of whitelisted CIDR blocks for ingress HTTPS communication"
+  type = list(string)
 }
 
 variable "nsg_display_name" {

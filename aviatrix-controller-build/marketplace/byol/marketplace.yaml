@@ -276,11 +276,10 @@ variables:
     description: Subnet DNS Label. Only letters and numbers, starting with a letter. 15 characters max.    
 
   nsg_whitelist_ip:
-    type: string
+    type: list(string)
     required: true
-    default: 0.0.0.0/0
     title: Network Security Groups - Whitelisted IP
-    description: "Ingress connection to VM whitelisted from IP (range). Enter 0.0.0.0/0 or <your IP>/32"
+    description: A list of whitelisted CIDR blocks for ingress HTTPS communication
 
   nsg_display_name:
     type: string

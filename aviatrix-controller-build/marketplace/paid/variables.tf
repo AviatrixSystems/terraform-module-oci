@@ -32,7 +32,7 @@ variable "mp_listing_resource_id" {
 }
 
 variable "mp_listing_resource_version" {
-  default = "6.3.0"
+  default = "6.3"
 }
 
 ############################

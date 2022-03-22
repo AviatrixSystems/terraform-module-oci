@@ -40,7 +40,7 @@ variable "mp_paid_versions" {
   type = map(string)
 
   default = {
-    "6.3.0" = "6.3.0"
+    "6.3.0" = "6.3"
   }
 }
 
@@ -58,7 +58,7 @@ variable "mp_paid_listing_resource_id" {
   type = map(string)
 
   default = {
-    "6.3.0" = "ocid1.image.oc1..aaaaaaaams7arhiyikfhpvo2kj35ky76csllxdnzijqw6ves4a5saaj63mva"
+    "6.3" = "ocid1.image.oc1..aaaaaaaams7arhiyikfhpvo2kj35ky76csllxdnzijqw6ves4a5saaj63mva"
   }
 }
 

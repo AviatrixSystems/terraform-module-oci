@@ -49,7 +49,6 @@ module "subscribe_to_marketplace" {
 
 }
 
-
 resource "oci_core_instance" "vm" {
   depends_on          = [module.subscribe_to_marketplace]
   availability_domain = var.availability_domain

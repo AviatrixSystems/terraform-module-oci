@@ -55,6 +55,7 @@ def function_handler(event):
     api_endpoint_url = (
         "https://" + hostname + "/" + aviatrix_api_version + "/" + aviatrix_api_route
     )
+    time.sleep(240)
 
     # Step1. Wait until the rest API service of Aviatrix Controller is up and running
     logging.info(
@@ -139,6 +140,7 @@ def function_handler(event):
         CID=CID,
         target_version=controller_init_version,
     )
+    time.sleep(20)
     verify_aviatrix_api_run_initial_setup(response=response)
     logging.info("End: Aviatrix Controller initial setup")
 

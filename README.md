@@ -10,7 +10,7 @@ This Terraform module allows you to launch the Aviatrix Controller and create th
 ## Available Modules
 Module  | Description |
 | ------- | ----------- |
-|[aviatrix_controller_build](./aviatrix-controller-build/simple) |Builds the Aviatrix Controller VM on OCI <br />[Source Code] https://github.com/oracle-quickstart/oci-aviatrix|
+|[aviatrix_controller_build](./aviatrix-controller-build) |Builds the Aviatrix Controller VM on OCI <br />[Source Code] https://github.com/oracle-quickstart/oci-aviatrix|
 |[aviatrix_controller_initialize](./aviatrix-controller-initialize) | Initializes the Aviatrix Controller (setting admin email, setting admin password, upgrading controller version, and setting access account) <br />[Source Code] https://github.com/AviatrixSystems/terraform-module-azure|
 
 
@@ -33,7 +33,7 @@ In order to run `aviatrix_controller_init.py` python script, dependencies listed
 **build_controller.tf**
 ```
 module "aviatrix_controller_build" {
-  source           = "github.com/AviatrixSystems/terraform-module-oci.git//aviatrix-controller-build/simple"
+  source           = "github.com/AviatrixSystems/terraform-module-oci.git//aviatrix-controller-build"
   tenancy_ocid     = "<< tenancy ocid >>"
   compartment_ocid = "<< compartment ocid >>"
   user_ocid        = "<< user ocid >>"
@@ -59,7 +59,7 @@ output "aviatrix_controller_url" {
 ```
 *Execute*
 ```shell
-cd aviatrix-controller-build/simple
+cd aviatrix-controller-build
 terraform init
 terraform apply
 cd ..
@@ -96,7 +96,7 @@ cd ..
 The controller buildup and initialization can be done using a single terraform file.
 ```
 module "aviatrix_controller_build" {
-  source           = "github.com/AviatrixSystems/terraform-module-oci.git//aviatrix-controller-build/simple"
+  source           = "github.com/AviatrixSystems/terraform-module-oci.git//aviatrix-controller-build"
   tenancy_ocid     = "<< tenancy ocid >>"
   compartment_ocid = "<< compartment ocid >>"
   user_ocid        = "<< user ocid >>"

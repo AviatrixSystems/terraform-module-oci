@@ -22,6 +22,8 @@ import requests
 
 # The wait time from experience is between 60 to 600 seconds
 default_wait_time_for_apache_wakeup = 300
+# The sleep time before initialize controller
+sleep_time = 240
 
 
 class AviatrixException(Exception):
@@ -55,7 +57,7 @@ def function_handler(event):
     api_endpoint_url = (
         "https://" + hostname + "/" + aviatrix_api_version + "/" + aviatrix_api_route
     )
-    time.sleep(240)
+    time.sleep(sleep_time)
 
     # Step1. Wait until the rest API service of Aviatrix Controller is up and running
     logging.info(

@@ -29,7 +29,7 @@ resource "oci_core_internet_gateway" "igw" {
 }
 
 resource "oci_core_subnet" "public_subnet" {
-  count          = var.use_existing_network ? 0:1
+  count                      = var.use_existing_network ? 0:1
   compartment_id             = var.compartment_ocid
   vcn_id                     = oci_core_vcn.vcn[count.index].id
   cidr_block                 = var.subnet_cidr_block
@@ -87,11 +87,11 @@ resource "oci_core_network_security_group_security_rule" "rule_egress_all" {
 }
 
 resource "oci_core_network_security_group_security_rule" "rule_ingress_tcp443" {
-  count                     = length(var.nsg_whitelist_ip)
+  count                     = length(var.incoming_ssl_cidrs)
   network_security_group_id = oci_core_network_security_group.nsg.id
   protocol                  = "6"
   direction                 = "INGRESS"
-  source                    = var.nsg_whitelist_ip[count.index]
+  source                    = var.incoming_ssl_cidrs[count.index]
   stateless                 = false
 
   tcp_options {
